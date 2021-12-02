@@ -6,24 +6,6 @@ export const styles = StyleSheet.create({
         flex: 1,
         width: '100%'
     },
-    heading: {
-        width: '100%',
-        height: '35%',
-        backgroundColor: theme.colors.purple,
-        paddingTop: 13
-    },
-    header: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center',
-        marginBottom: 10
-    },
-    title: {
-        fontFamily: theme.fonts.weight900,
-        fontSize: 25,
-        color: '#fff',
-
-    },
     companyProfile: {
         alignItems: 'center'
     },

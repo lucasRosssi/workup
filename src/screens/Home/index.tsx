@@ -5,27 +5,15 @@ import { MaterialIcons, Feather, EvilIcons } from '@expo/vector-icons'
 
 import { styles } from "./styles";
 import { theme } from "../../global/styles/theme";
+import { TopMenu } from "../../components/TopMenu";
+import { BottomMenu } from "../../components/BottomMenu";
+import { PurpleBackground } from "../../components/PurpleBackground";
 
 export function Home() {
     return (
         <View style={styles.container}>
-            <View style={styles.heading}>
-                <View style={styles.header}>
-                    <MaterialIcons 
-                        name="menu" 
-                        color="#FFF" 
-                        size={32} 
-                        style={{
-                            position: 'absolute',
-                            left: 13,
-                        }} 
-                    />
-
-                    <Text style={styles.title}>
-                        WORKUP
-                    </Text>
-
-                </View>
+            <PurpleBackground>
+                <TopMenu />                
 
                 <View style={styles.companyProfile}>
                     <View style={styles.companyPicture}>
@@ -40,7 +28,7 @@ export function Home() {
                         Delícias de Aicha
                     </Text>
                 </View>
-            </View>
+            </PurpleBackground>
 
             <View style={styles.body}>
                 <View style={styles.sales}>
@@ -96,17 +84,7 @@ export function Home() {
                     </View>
                 </View>
 
-                <View style={styles.bottomMenu}>
-                    <Feather name="home" color={theme.colors.teal} size={24} />
-                    
-                    <View style={styles.outerCircle}>
-                        <View style={styles.innerCircle}>
-                            <Feather name="shopping-cart" color="#fff" size={30} />
-                        </View>
-                    </View>
-
-                    <EvilIcons name="chart" color="#fff" size={32} />
-                </View>
+                <BottomMenu />
             </View>
         </View>
     )
