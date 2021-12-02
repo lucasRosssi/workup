@@ -6,10 +6,14 @@ import { Feather, EvilIcons } from '@expo/vector-icons'
 import { theme } from "../../global/styles/theme";
 import { styles } from "./styles";
 
-export function BottomMenu() {
+type BottomMenuProps = {
+    screen: string
+}
+
+export function BottomMenu({ screen }: BottomMenuProps) {
     return (
         <View style={styles.container}>
-            <Feather name="home" color={theme.colors.teal} size={24} />
+            <Feather name="home" color={screen === 'Home' ? theme.colors.teal : '#fff'} size={24} />
             
             <View style={styles.outerCircle}>
                 <View style={styles.innerCircle}>
@@ -17,7 +21,7 @@ export function BottomMenu() {
                 </View>
             </View>
 
-            <EvilIcons name="chart" color="#fff" size={32} />
+            <EvilIcons name="chart" color={screen === 'DailyReport' ? theme.colors.teal : "#fff"} size={32} />
         </View>
     )
 }

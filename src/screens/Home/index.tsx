@@ -84,7 +84,7 @@ export function Home() {
                     </View>
                 </View>
 
-                <BottomMenu />
+                <BottomMenu screen="Home" />
             </View>
         </View>
     )

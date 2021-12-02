@@ -6,7 +6,7 @@ export const theme = {
         weight900: 'Roboto_900Black'
     },
     colors: {
-        background: '#BEBEBE',
+        background: '#F4F4F4',
         purple: '#5E12D3',
         red: '#F03A5B',
         green: '#539832',

@@ -10,6 +10,7 @@ import { StatusBar } from 'expo-status-bar';
 import AppLoading from 'expo-app-loading';
 
 import { Home } from './src/screens/Home';
+import { DailyReport } from './src/screens/DailyReport';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -25,7 +26,7 @@ export default function App() {
     return (
       <>
         <StatusBar translucent={false}/>
-        <Home />
+        <DailyReport />
       </>
     );
 
