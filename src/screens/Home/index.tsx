@@ -8,8 +8,15 @@ import { theme } from "../../global/styles/theme";
 import { TopMenu } from "../../components/TopMenu";
 import { BottomMenu } from "../../components/BottomMenu";
 import { PurpleBackground } from "../../components/PurpleBackground";
+import { useNavigation } from "@react-navigation/core";
 
 export function Home() {
+    const navigation = useNavigation()
+
+    function handleGoToDailyReport() {
+        navigation.navigate('DailyReport' as never)
+    }
+
     return (
         <View style={styles.container}>
             <PurpleBackground>
@@ -84,7 +91,10 @@ export function Home() {
                     </View>
                 </View>
 
-                <BottomMenu screen="Home" />
+                <BottomMenu 
+                    screen="Home"
+                    goToDailyReport={handleGoToDailyReport}
+                />
             </View>
         </View>
     )

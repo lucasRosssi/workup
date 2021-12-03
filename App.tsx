@@ -8,9 +8,13 @@ import {
 import { useFonts } from 'expo-font';
 import { StatusBar } from 'expo-status-bar';
 import AppLoading from 'expo-app-loading';
+import { useNavigation } from '@react-navigation/core';
 
 import { Home } from './src/screens/Home';
 import { DailyReport } from './src/screens/DailyReport';
+import { NavigationContainer } from '@react-navigation/native';
+import { AppRoutes } from './src/routes/app.routes';
+import { BottomMenu } from './src/components/BottomMenu';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -24,10 +28,10 @@ export default function App() {
     return <AppLoading />
   } else {
     return (
-      <>
+      <NavigationContainer>
         <StatusBar translucent={false}/>
-        <DailyReport />
-      </>
+        <AppRoutes />
+      </NavigationContainer>
     );
 
   }

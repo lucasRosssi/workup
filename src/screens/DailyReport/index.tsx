@@ -1,3 +1,4 @@
+import { useNavigation } from "@react-navigation/core";
 import React from "react";
 import { ScrollView, Text, View } from "react-native";
 import { BottomMenu } from "../../components/BottomMenu";
@@ -9,6 +10,12 @@ import { theme } from "../../global/styles/theme";
 import { styles } from "./styles";
 
 export function DailyReport() {
+    const navigation = useNavigation()
+
+    function handleGoToHome() {
+        navigation.navigate('Home' as never)
+    }
+
     return (
         <View style={styles.container}>
             <PurpleBackground>
@@ -58,7 +65,10 @@ export function DailyReport() {
             <InputOutputDetails />
 
 
-            <BottomMenu screen="DailyReport" />
+            <BottomMenu 
+                screen="DailyReport" 
+                goToHome={handleGoToHome}
+            />
 
         </View>
     )
