@@ -1,5 +1,5 @@
 import React from "react";
-import { TouchableOpacity, View } from "react-native";
+import { Alert, TouchableOpacity, View } from "react-native";
 
 import { Feather, EvilIcons } from '@expo/vector-icons'
 
@@ -96,6 +96,43 @@ export function BottomMenu({ screen, goToDailyReport, goToHome, goToStock }: Bot
                             color={theme.colors.purple} 
                             size={32}     
                     />     
+                </View>
+            }
+            {
+                screen === "ProductDetail" &&
+                <View style={styles.container}>
+                    <TouchableOpacity>
+                        <Feather
+                            name="plus" 
+                            color="#fff" 
+                            size={32}             
+                        />
+                    </TouchableOpacity>
+                    
+                    <View style={styles.outerCircle}>
+                        <TouchableOpacity style={styles.innerCircle}>
+                            <Feather name="edit" color="#fff" size={32} />
+                        </TouchableOpacity>
+                    </View>
+
+                    <TouchableOpacity onPress={() => Alert.alert(
+                            'Remover Produto', 
+                            'Tem certeza que deseja remover esse produto?',
+                            [{
+                                text: 'Não'
+                            }, 
+                            {
+                                text: 'Sim', 
+                                onPress: goToStock
+                            }]
+                        )}
+                    >
+                        <EvilIcons
+                                name="trash" 
+                                color="#fff" 
+                                size={40}     
+                        />              
+                    </TouchableOpacity>   
                 </View>
             }
             

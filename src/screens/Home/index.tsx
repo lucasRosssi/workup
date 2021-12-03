@@ -1,7 +1,7 @@
 import React from "react";
 import { Text, View } from "react-native";
 
-import { MaterialIcons, Feather, EvilIcons } from '@expo/vector-icons'
+import { MaterialIcons, Feather } from '@expo/vector-icons'
 
 import { styles } from "./styles";
 import { theme } from "../../global/styles/theme";

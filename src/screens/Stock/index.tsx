@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { FlatList, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { useNavigation } from "@react-navigation/core";
 
 import { BottomMenu } from "../../components/BottomMenu";
 import { PurpleBackground } from "../../components/PurpleBackground";
@@ -8,9 +9,11 @@ import { Octicons, MaterialCommunityIcons, Ionicons, Entypo, Feather } from '@ex
 
 import { styles } from "./styles";
 import { theme } from "../../global/styles/theme";
+import { ProductProps } from "../ProductDetail";
 
 export function Stock() {
-    const data = [
+    const navigation = useNavigation()
+    const [product, setProduct] = useState<ProductProps[]>([
         {
             id: '1',
             name: 'Água Mineral',
@@ -40,14 +43,21 @@ export function Stock() {
             id: '6',
             name: 'Suco de Maracujá',
             available: false
-        },
-        
-    ]
+        }
+    ])
+
+    function handleBackToTop() {
+        navigation.navigate('Home' as never)
+    }
+
+    function handleProductDetail(productSelected: ProductProps) {
+        navigation.navigate('ProductDetail' as never, { productSelected } as never)
+    }
 
     return (
         <View style={styles.container}>
             <PurpleBackground type="2">
-                <TopMenu />
+                <TopMenu backToTop={handleBackToTop}/>
 
                 <View style={styles.header}>
                     <Text style={styles.title}>
@@ -72,10 +82,14 @@ export function Stock() {
 
             <View style={styles.flatListContainer}>
                 <FlatList 
-                    data={data}
+                    data={product}
+                    keyExtractor={item => item.id}
                     renderItem={({ item }) => {
                         return (
-                            <TouchableOpacity style={styles.itemContainer}>
+                            <TouchableOpacity 
+                                style={styles.itemContainer}
+                                onPress={() => handleProductDetail(item) }
+                            >
                                 <Entypo 
                                     name="dot-single" 
                                     size={32} 

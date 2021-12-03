@@ -12,6 +12,10 @@ import { styles } from "./styles";
 export function DailyReport() {
     const navigation = useNavigation()
 
+    function handleBackToTop() {
+        navigation.navigate('Home' as never)
+    }
+
     function handleGoToHome() {
         navigation.navigate('Home' as never)
     }
@@ -23,7 +27,7 @@ export function DailyReport() {
     return (
         <View style={styles.container}>
             <PurpleBackground type="1">
-                <TopMenu />
+                <TopMenu backToTop={handleBackToTop}/>
 
                 <View style={styles.titleContainer}>
                     <Text style={styles.title}>
