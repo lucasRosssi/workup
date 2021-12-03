@@ -10,33 +10,95 @@ type BottomMenuProps = {
     screen: string,
     goToDailyReport?: () => void,
     goToHome?: () => void
+    goToStock?: () => void
 }
 
-export function BottomMenu({ screen, goToDailyReport, goToHome }: BottomMenuProps) {
+export function BottomMenu({ screen, goToDailyReport, goToHome, goToStock }: BottomMenuProps) {
     return (
-        <View style={styles.container}>
-            <TouchableOpacity onPress={goToHome}>
-                <Feather
-                    name="home" 
-                    color={screen === 'Home' ? theme.colors.teal : '#fff'} 
-                    size={24}             
-                />
-            </TouchableOpacity>
-            
-            <View style={styles.outerCircle}>
-                <View style={styles.innerCircle}>
-                    <Feather name="shopping-cart" color="#fff" size={30} />
-                </View>
-            </View>
+        <>
+            {
+                screen === 'Home' &&
+                <View style={styles.container}>
+                    <TouchableOpacity onPress={goToHome}>
+                        <Feather
+                            name="home" 
+                            color={theme.colors.teal} 
+                            size={24}             
+                        />
+                    </TouchableOpacity>
+                    
+                    <View style={styles.outerCircle}>
+                        <TouchableOpacity 
+                            style={styles.innerCircle}
+                            onPress={goToStock}
+                        >
+                            <Feather name="shopping-cart" color="#fff" size={30} />
+                        </TouchableOpacity>
+                    </View>
 
-            <TouchableOpacity onPress={goToDailyReport}>
-                <EvilIcons
-                    name="chart" 
-                    color={screen === 'DailyReport' ? theme.colors.teal : "#fff"} 
-                    size={32}     
-                />
-            </TouchableOpacity>
-                
-        </View>
+                    <TouchableOpacity onPress={goToDailyReport}>
+                        <EvilIcons
+                            name="chart" 
+                            color="#fff" 
+                            size={32}     
+                        />
+                    </TouchableOpacity>      
+                </View>
+            }
+            {
+                screen === 'DailyReport' &&
+                <View style={styles.container}>
+                    <TouchableOpacity onPress={goToHome}>
+                        <Feather
+                            name="home" 
+                            color="#fff" 
+                            size={24}             
+                        />
+                    </TouchableOpacity>
+                    
+                    <View style={styles.outerCircle}>
+                        <TouchableOpacity 
+                            style={styles.innerCircle}
+                            onPress={goToStock}
+                        >
+                            <Feather name="shopping-cart" color="#fff" size={30} />
+                        </TouchableOpacity>
+                    </View>
+
+                    <TouchableOpacity onPress={goToDailyReport}>
+                        <EvilIcons
+                            name="chart" 
+                            color={theme.colors.teal} 
+                            size={32}     
+                        />
+                    </TouchableOpacity>      
+                </View>
+            }
+            {
+                screen === 'Stock' &&
+                <View style={styles.container}>
+                    <TouchableOpacity>
+                        <Feather
+                            name="grid" 
+                            color="#fff" 
+                            size={24}             
+                        />
+                    </TouchableOpacity>
+                    
+                    <View style={styles.outerCircle}>
+                        <TouchableOpacity style={styles.innerCircle}>
+                            <Feather name="plus" color="#fff" size={45} />
+                        </TouchableOpacity>
+                    </View>
+
+                    <EvilIcons
+                            name="chart" 
+                            color={theme.colors.purple} 
+                            size={32}     
+                    />     
+                </View>
+            }
+            
+        </>
     )
 }

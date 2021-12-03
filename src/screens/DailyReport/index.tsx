@@ -16,9 +16,13 @@ export function DailyReport() {
         navigation.navigate('Home' as never)
     }
 
+    function handleGoToStock() {
+        navigation.navigate('Stock' as never)
+    }
+
     return (
         <View style={styles.container}>
-            <PurpleBackground>
+            <PurpleBackground type="1">
                 <TopMenu />
 
                 <View style={styles.titleContainer}>
@@ -64,10 +68,10 @@ export function DailyReport() {
 
             <InputOutputDetails />
 
-
             <BottomMenu 
                 screen="DailyReport" 
                 goToHome={handleGoToHome}
+                goToStock={handleGoToStock}
             />
 
         </View>

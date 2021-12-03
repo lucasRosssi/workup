@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import { Home } from "../screens/Home";
 import { DailyReport } from "../screens/DailyReport";
+import { Stock } from "../screens/Stock";
 
 const Stack = createNativeStackNavigator()
 
@@ -23,6 +24,13 @@ export function AppRoutes() {
             <Stack.Screen 
                 name="DailyReport"
                 component={DailyReport}
+                options={{
+                    animation: 'none'
+                }}
+            />
+            <Stack.Screen 
+                name="Stock"
+                component={Stock}
                 options={{
                     animation: 'none'
                 }}

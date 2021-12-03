@@ -17,9 +17,13 @@ export function Home() {
         navigation.navigate('DailyReport' as never)
     }
 
+    function handleGoToStock() {
+        navigation.navigate('Stock' as never)
+    }
+
     return (
         <View style={styles.container}>
-            <PurpleBackground>
+            <PurpleBackground type="1">
                 <TopMenu />                
 
                 <View style={styles.companyProfile}>
@@ -94,6 +98,7 @@ export function Home() {
                 <BottomMenu 
                     screen="Home"
                     goToDailyReport={handleGoToDailyReport}
+                    goToStock={handleGoToStock}
                 />
             </View>
         </View>

@@ -4,13 +4,24 @@ import { View } from "react-native";
 import { styles } from "./styles";
 
 type PurpleBackgroundProps = {
-    children: ReactNode
+    children: ReactNode,
+    type: string
 }
 
-export function PurpleBackground({ children }: PurpleBackgroundProps) {
+export function PurpleBackground({ children, type }: PurpleBackgroundProps) {
     return (
-        <View style={styles.container}>
-            {children}
-        </View>
+        <>
+            {
+                type === '1'
+                ? 
+                <View style={styles.container1}>
+                    {children}
+                </View>
+                :
+                <View style={styles.container2}>
+                    {children}
+                </View>
+            }
+        </>
     )
 }
