@@ -20,10 +20,21 @@ export const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center'
     },
-    navButton: {
+    navButtonRight: {
         position: 'absolute', 
         right: 30,
         backgroundColor: theme.colors.red,
+        width: 40,
+        height: 40,
+        borderRadius: 20,
+
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    navButtonLeft: {
+        position: 'absolute', 
+        left: 30,
+        backgroundColor: theme.colors.green,
         width: 40,
         height: 40,
         borderRadius: 20,
@@ -36,7 +47,7 @@ export const styles = StyleSheet.create({
         width: '100%',
         backgroundColor: theme.colors.green,
         alignItems: 'center',
-        paddingBottom: 15
+        paddingVertical: 15        
     },
     totalContainer: {
         backgroundColor: '#fff',
@@ -59,7 +70,7 @@ export const styles = StyleSheet.create({
         backgroundColor: '#fff',
         width: 220,
         height: 100,
-        marginRight: 20,
+        marginLeft: 20,
 
         borderRadius: 50,
 

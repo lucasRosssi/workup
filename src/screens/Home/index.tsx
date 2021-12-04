@@ -1,5 +1,5 @@
-import React from "react";
-import { Text, View } from "react-native";
+import React, { useState } from "react";
+import { Text, TouchableOpacity, View } from "react-native";
 
 import { MaterialIcons, Feather } from '@expo/vector-icons'
 
@@ -12,6 +12,24 @@ import { useNavigation } from "@react-navigation/core";
 
 export function Home() {
     const navigation = useNavigation()
+    const [saleCount, setSaleCount] = useState('70')
+    const [company, setCompany] = useState({
+        name: 'Delícias de Aicha',
+        image: '',
+        initials: getCompanyInitials
+    })
+    const [companyInitials, setCompanyInitials] = useState('')
+
+    function getCompanyInitials() {
+        const names = company.name.split(' ')
+        let initials = names[0].substring(0, 1).toUpperCase()
+
+        if (names.length > 1) {
+            initials += names[names.length - 1].substring(0, 1).toUpperCase()
+        }
+
+        return initials
+    }
 
     function handleGoToDailyReport() {
         navigation.navigate('DailyReport' as never)
@@ -21,6 +39,7 @@ export function Home() {
         navigation.navigate('Stock' as never)
     }
 
+
     return (
         <View style={styles.container}>
             <PurpleBackground type="1">
@@ -28,27 +47,32 @@ export function Home() {
 
                 <View style={styles.companyProfile}>
                     <View style={styles.companyPicture}>
-                        <Text style={styles.companyPictureInitials}>
-                            DA
-                        </Text>
+                        {
+                            company.image
+                            ? company.image 
+                            : <Text style={styles.companyPictureInitials}>
+                                {company.initials()}
+                              </Text>
+                        }
+                        
                         <View style={styles.changePicture}>
                             <MaterialIcons name="image" color="#fff" size={20} />
                         </View>
                     </View>
                     <Text style={styles.companyName}>
-                        Delícias de Aicha
+                        {company.name}
                     </Text>
                 </View>
             </PurpleBackground>
 
             <View style={styles.body}>
-                <View style={styles.sales}>
+                <TouchableOpacity style={styles.sales}>
                     <Text style={styles.salesText}>
                         VENDAS NO DIA
                     </Text>
 
                     <Text style={styles.salesCount}>
-                        70
+                        {saleCount}
                     </Text>
 
                     <MaterialIcons 
@@ -61,38 +85,38 @@ export function Home() {
                             bottom: 20
                         }}
                     />
-                </View>
+                </TouchableOpacity>
 
                 <Text style={styles.billsText}>
                     Contas
                 </Text>
 
                 <View style={styles.buttonContainer}>
-                    <View style={styles.billsButton}>
+                    <TouchableOpacity style={styles.billsButton}>
                         <Feather name="arrow-down-right" color={theme.colors.green} size={32} />
                         <Text style={[styles.billsButtonText, { color: theme.colors.green }]}>
                             Receber
                         </Text>
-                    </View>
+                    </TouchableOpacity>
 
-                    <View style={styles.billsButton}>
-                        <Feather name="external-link" color={theme.colors.red} size={32} />
+                    <TouchableOpacity style={styles.billsButton}>
+                        <Feather name="arrow-up-right" color={theme.colors.red} size={32} />
                         <Text style={[styles.billsButtonText, { color: theme.colors.red }]}>
                             Pagar
                         </Text>
-                    </View>
+                    </TouchableOpacity>
                 </View>
                 
                 <View style={styles.outContainer}>
-                    <View style={styles.outButton}>
+                    <TouchableOpacity style={styles.outButton}>
                         <Text style={styles.outButtonText}>
                             Informar Saída
                         </Text>
-                    </View>
+                    </TouchableOpacity>
 
-                    <View style={styles.questionMarkButton}>
+                    <TouchableOpacity style={styles.questionMarkButton}>
                         <Text style={styles.questionMark}>?</Text>
-                    </View>
+                    </TouchableOpacity>
                 </View>
 
                 <BottomMenu 

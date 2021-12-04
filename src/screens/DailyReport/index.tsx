@@ -1,16 +1,21 @@
+import React, { useState, useContext } from "react";
 import { useNavigation } from "@react-navigation/core";
-import React from "react";
-import { ScrollView, Text, View } from "react-native";
+import { Text, View } from "react-native";
+
 import { BottomMenu } from "../../components/BottomMenu";
 import { InputOutputDetails } from "../../components/InputOutputDetails";
 import { PurpleBackground } from "../../components/PurpleBackground";
 import { TopMenu } from "../../components/TopMenu";
-import { theme } from "../../global/styles/theme";
 
+import { BalanceContext } from "../../contexts/BalanceContext";
+
+import { theme } from "../../global/styles/theme";
 import { styles } from "./styles";
 
 export function DailyReport() {
     const navigation = useNavigation()
+
+    const context = useContext(BalanceContext)
 
     function handleBackToTop() {
         navigation.navigate('Home' as never)
@@ -23,6 +28,25 @@ export function DailyReport() {
     function handleGoToStock() {
         navigation.navigate('Stock' as never)
     }
+
+    function calculateTotalInput() {
+        let total = context.input.reduce(getTotal, 0)
+        function getTotal(total: number, item: {id: string, name: string, value: number}) {
+            return total + (item.value)
+        }
+        return total     
+    }
+
+    function calculateTotalOutput() {
+        let total = context.output.reduce(getTotal, 0)
+        function getTotal(total: number, item: {id: string, name: string, value: number}) {
+            return total + (item.value)
+        }
+        return total     
+    }
+
+    const totalInput = calculateTotalInput()
+    const totalOutput = calculateTotalOutput()
 
     return (
         <View style={styles.container}>
@@ -42,14 +66,14 @@ export function DailyReport() {
                             Entrada
                         </Text>
                         <Text style={styles.dataValue}>
-                            R$ 900,00
+                            R$ {totalInput.toFixed(2).replace('.', ',')}
                         </Text>
 
                         <Text style={[styles.dataText, { color: theme.colors.red }]}>
                             Saída
                         </Text>
                         <Text style={styles.dataValue}>
-                            R$ 450,00
+                            R$ {totalOutput.toFixed(2).replace('.', ',')}
                         </Text>
                     </View>
 
@@ -65,7 +89,7 @@ export function DailyReport() {
                         Lucro
                     </Text>
                     <Text style={styles.dataValue}>
-                        R$ 450,00
+                        R$ {(totalInput - totalOutput).toFixed(2).replace('.', ',')}
                     </Text>
                 </View>
             </View>
