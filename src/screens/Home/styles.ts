@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { Platform, StyleSheet } from "react-native";
 import { theme } from "../../global/styles/theme";
 
 export const styles = StyleSheet.create({
@@ -50,43 +50,54 @@ export const styles = StyleSheet.create({
     sales: {
         backgroundColor: '#fff',
         width: '93%',
-        height: '25%',
+        height: 120,
         top: -60,
         borderRadius: 50,
-        paddingTop: 18,
+        paddingTop: '4%',
         paddingLeft: 30,
-        marginBottom: -70
+        marginBottom: -60
     },
     salesText: {
         fontFamily: theme.fonts.weight500,
         fontSize: 15,
         color: theme.colors.purple,
-        marginBottom: -5
+        marginBottom: 5
     },
     salesCount: {
+        position: 'absolute',
+        left: 30,
+        bottom: 3,
         fontFamily: theme.fonts.weight900,
-        fontSize: 60,
+        fontSize: 55,
         color: theme.colors.purple
     },
     billsText: {
         fontFamily: theme.fonts.weight400,
-        fontSize: 20,
+        fontSize: 18,
         color: '#888888',
         alignSelf: 'flex-start',
-        marginTop: 18,
+        marginTop: 15,
         marginLeft: 42
     },
     buttonContainer: {
         flexDirection: 'row',
         justifyContent: 'space-evenly',
-        marginTop: 14
+        marginTop: 20
     },
     billsButton: {
         backgroundColor: '#fff',
-        height: 130,
-        width: 130,
+        height: 120,
+        width: 120,
         elevation: 8,
         borderRadius: 50,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 4,
+        },
+        shadowOpacity: 0.30,
+        shadowRadius: 4.65,
+
         alignItems: 'center',
         justifyContent: 'center',
         marginHorizontal: 25
@@ -98,7 +109,7 @@ export const styles = StyleSheet.create({
     outContainer: {
         flexDirection: 'row',
         alignItems: 'center',
-        marginTop: 26
+        marginTop: 20
     },
     outButton: {
         backgroundColor: theme.colors.red,
@@ -109,6 +120,13 @@ export const styles = StyleSheet.create({
         marginLeft: 10,
 
         elevation: 8,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 4,
+        },
+        shadowOpacity: 0.30,
+        shadowRadius: 4.65,
         borderRadius: 50
     },
     outButtonText: {
@@ -130,39 +148,4 @@ export const styles = StyleSheet.create({
         fontSize: 15,
         color: '#fff'
     },
-    bottomMenu: {
-        position: 'absolute',
-        bottom: 0,
-        width: '100%',
-        height: 73,
-
-        backgroundColor: theme.colors.purple,
-        borderTopLeftRadius: 50,
-        borderTopRightRadius: 50,
-
-        paddingHorizontal: 65,
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center'  
-    },
-    outerCircle: {
-        backgroundColor: theme.colors.background,
-        width: 100,
-        height: 100,
-        borderRadius: 50,
-
-        alignItems: 'center',
-        justifyContent: 'center',
-        
-        marginTop: -80
-    },
-    innerCircle: {
-        backgroundColor: theme.colors.teal,
-        width: 72,
-        height: 72,
-        borderRadius: 36,
-
-        alignItems: 'center',
-        justifyContent: 'center'
-    }
 })

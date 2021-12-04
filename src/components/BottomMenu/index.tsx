@@ -32,7 +32,7 @@ export function BottomMenu({ screen, goToDailyReport, goToHome, goToStock }: Bot
                             style={styles.innerCircle}
                             onPress={goToStock}
                         >
-                            <Feather name="shopping-cart" color="#fff" size={30} />
+                            <Feather name="shopping-cart" color="#fff" size={25} />
                         </TouchableOpacity>
                     </View>
 
@@ -61,7 +61,7 @@ export function BottomMenu({ screen, goToDailyReport, goToHome, goToStock }: Bot
                             style={styles.innerCircle}
                             onPress={goToStock}
                         >
-                            <Feather name="shopping-cart" color="#fff" size={30} />
+                            <Feather name="shopping-cart" color="#fff" size={25} />
                         </TouchableOpacity>
                     </View>
 

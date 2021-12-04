@@ -1,14 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Switch, Text, TouchableOpacity, View } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/core";
 
 import { PurpleBackground } from "../../components/PurpleBackground";
 import { TopMenu } from "../../components/TopMenu";
 import { MaterialIcons } from '@expo/vector-icons'
+import { BottomMenu } from "../../components/BottomMenu";
+import { StockContext } from "../../contexts/StockContext";
 
 import { styles } from "./styles";
 import { theme } from "../../global/styles/theme";
-import { BottomMenu } from "../../components/BottomMenu";
 
 export type ProductProps = {
     id: string,
@@ -23,6 +24,8 @@ type Params = {
 export function ProductDetail({ id, name, available }:ProductProps) {
     const navigation = useNavigation()
     const route = useRoute()
+    const stockItems = useContext(StockContext)
+
     const { productSelected } = route.params as Params
     const [isAvailable, setIsAvailable] = useState(productSelected.available)
 

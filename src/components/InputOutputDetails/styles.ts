@@ -4,11 +4,18 @@ import { theme } from "../../global/styles/theme";
 export const styles = StyleSheet.create({
     container: {
         width: '93%',
-        height: '35%',
+        height: 275,
         backgroundColor: '#fff',
         marginTop: 12,
 
         elevation: 10,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 5,
+        },
+        shadowOpacity: 0.34,
+        shadowRadius: 6.27,
         borderRadius: 50,
         alignItems: 'center',
         justifyContent: 'center',

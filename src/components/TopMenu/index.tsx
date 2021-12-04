@@ -22,7 +22,7 @@ export function TopMenu({ backToTop }: TopMenuProps) {
                         }} 
                     />
 
-                    <TouchableOpacity onPress={backToTop}>
+                    <TouchableOpacity activeOpacity={.9} onPress={backToTop}>
                         <Text style={styles.title}>
                             WORKUP
                         </Text>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { FlatList, Text, TextInput, TouchableOpacity, View } from "react-native";
 import { useNavigation } from "@react-navigation/core";
 
@@ -6,45 +6,16 @@ import { BottomMenu } from "../../components/BottomMenu";
 import { PurpleBackground } from "../../components/PurpleBackground";
 import { TopMenu } from "../../components/TopMenu";
 import { Octicons, MaterialCommunityIcons, Ionicons, Entypo, Feather } from '@expo/vector-icons'
+import { ProductProps } from "../ProductDetail";
+import { StockContext } from "../../contexts/StockContext";
 
 import { styles } from "./styles";
 import { theme } from "../../global/styles/theme";
-import { ProductProps } from "../ProductDetail";
 
 export function Stock() {
     const navigation = useNavigation()
-    const [product, setProduct] = useState<ProductProps[]>([
-        {
-            id: '1',
-            name: 'Água Mineral',
-            available: true
-        },
-        {
-            id: '2',
-            name: 'Esfiha de Carne',
-            available: true
-        },
-        {
-            id: '3',
-            name: 'Suco de Maracujá',
-            available: false
-        },
-        {
-            id: '4',
-            name: 'Água Mineral',
-            available: true
-        },
-        {
-            id: '5',
-            name: 'Esfiha de Carne',
-            available: true
-        },
-        {
-            id: '6',
-            name: 'Suco de Maracujá',
-            available: false
-        }
-    ])
+    const stockItems = useContext(StockContext)
+    const [product, setProduct] = useState<ProductProps[]>(stockItems)
 
     function handleBackToTop() {
         navigation.navigate('Home' as never)
@@ -71,7 +42,10 @@ export function Stock() {
                             placeholder="Nome ou código do produto"
                             placeholderTextColor="#D8D8D8"
                             
+
+                            
                         />
+        
                         <MaterialCommunityIcons name="barcode-scan" size={24} color="#320773" />
                     </View>
 

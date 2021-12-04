@@ -18,20 +18,21 @@ export const styles = StyleSheet.create({
         marginTop: 5
     },
     profitContainer: {
-        marginTop: -160,
+        marginTop: -190,
         width: '93%',
-        height: '30%',
+        height: 220,
         backgroundColor: '#fff',
         borderRadius: 50,
         alignItems: 'center',
         paddingHorizontal: 21,
-        paddingTop: 32
+        paddingTop: 20
     },
     inputOutput: {
-        flexDirection: 'row'
+        flexDirection: 'row',
     },
     dataContainer: {
-        flex: 4
+        flex: 4,
+        marginTop: 2
     },
     dataText: {
         fontFamily: theme.fonts.weight400,
@@ -43,12 +44,31 @@ export const styles = StyleSheet.create({
     },
     chartContainer: {
         flex: 5,
+        flexDirection: 'row',
+        alignItems: 'flex-end',
+        marginTop: -30
+    },
+    inputBar: {
+        width: 40,
+        height: 100,
+        backgroundColor: theme.colors.green,
+        marginRight: 30,
+        borderTopLeftRadius: 50,
+        borderTopRightRadius: 50
+
+    },
+    outputBar: {
+        width: 40,
+        height: 100,
+        backgroundColor: theme.colors.red,
+        borderTopLeftRadius: 50,
+        borderTopRightRadius: 50
     },
     bar: {
         borderTopWidth: 1,
         borderColor: '#ECECEC',
         width: '70%',
-        marginVertical: 8
+        marginVertical: 15
     },
     separator: {
         width: '100%',
@@ -57,7 +77,7 @@ export const styles = StyleSheet.create({
         borderRadius: 10
     },
     profit: {
-        marginTop: 10,
+        marginTop: 7,
         alignItems: 'center'
     },
 })

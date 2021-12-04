@@ -6,7 +6,7 @@ export const styles = StyleSheet.create({
         position: 'absolute',
         bottom: 0,
         width: '100%',
-        height: 73,
+        height: 65,
 
         backgroundColor: theme.colors.purple,
         borderTopLeftRadius: 50,
@@ -19,20 +19,20 @@ export const styles = StyleSheet.create({
     },
     outerCircle: {
         backgroundColor: theme.colors.background,
-        width: 100,
-        height: 100,
-        borderRadius: 50,
+        width: 90,
+        height: 90,
+        borderRadius: 45,
 
         alignItems: 'center',
         justifyContent: 'center',
         
-        marginTop: -80
+        marginTop: -70
     },
     innerCircle: {
         backgroundColor: theme.colors.teal,
-        width: 72,
-        height: 72,
-        borderRadius: 36,
+        width: 62,
+        height: 62,
+        borderRadius: 31,
 
         alignItems: 'center',
         justifyContent: 'center'

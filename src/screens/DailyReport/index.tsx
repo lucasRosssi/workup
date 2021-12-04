@@ -68,7 +68,7 @@ export function DailyReport() {
                         <Text style={styles.dataValue}>
                             R$ {totalInput.toFixed(2).replace('.', ',')}
                         </Text>
-
+                        <View style={styles.bar}></View>
                         <Text style={[styles.dataText, { color: theme.colors.red }]}>
                             Saída
                         </Text>
@@ -78,7 +78,12 @@ export function DailyReport() {
                     </View>
 
                     <View style={styles.chartContainer}>
-
+                        <View style={[
+                            styles.inputBar,
+                            { height: totalInput > totalOutput ? 140 : 140 * (totalInput / totalOutput)}]}></View>
+                        <View style={[
+                            styles.outputBar,
+                            { height: totalOutput > totalInput ? 140 : 140 * (totalOutput / totalInput) }]}></View>
                     </View>
                 </View>
 
